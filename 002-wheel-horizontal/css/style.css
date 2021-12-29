@@ -30,20 +30,21 @@ section div {
 }
 aside {
   position: absolute;
-  top: 50%;
-  right: 50px;
-  transform: translate(0, -50%);
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  margin-top: 30px;
 }
 aside a {
-  display: block;
+  display: inline-block;
   border: 3px solid black;
   height: 20px;
   width: 20px;
-  margin-bottom: 10px;
-}
-aside a.active {
-  background-color: black;
+  margin-right: 10px;
 }
 aside a:last-child {
   margin-bottom: 0;
+}
+aside a.active {
+  background-color: black;
 }
