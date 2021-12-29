@@ -31,7 +31,7 @@ $(window).on('mousewheel DOMMouseScroll', function (e) {
   }, 80);
 });
 
-// function is executed after mousewheel and click event occured
+// function is executed after click and mousewheel event occured
 function scrollSection() {
   $('main').css({
     transform: `translateY(-${100 * num}vh)`,
