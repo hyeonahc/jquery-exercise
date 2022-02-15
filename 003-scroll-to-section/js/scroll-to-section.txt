@@ -1,0 +1,36 @@
+클릭 이벤트
+해당섹션으로 내려가기
+1. nav 태그 안에 있는 a태그에 클릭이 발생되면 아래와 같은 함수를 실행한다
+2. e.preventDefault()라는 이벤트의 메소드를 사용해 기본으로 정의된 이벤트를 작동하지 못하게 한다
+-- a태그를 클릭했을 때 preventDefault() 메서드를 실행시켜 주면 페이지 이동을 하는 기본 메소드를 막는다
+3. idx = $(this).index()
+-- this는 해당 코드를 묶고있는 선택자를 가리킨다
+-- 여기서 this는 click 이벤트가 발생한 nav안에 있는 a태그다 $('nav a').on('click', ...)
+-- 변수 idx에 a태그의 index값을 넣는다
+-- nav안에 a태그가 총 3개 있으므로 idx = 차례대로 0, 1, 2
+3. secPos = $('section').eq(idx).offset().top
+-- 0번째, 1번째, 2번째 section 태그의 index값을 선택하고 
+-- 각 섹션이 위에서부터 얼마나 떨어져있는지 값을 리턴해 변수 secPos안에 넣는다
+4. $('html').animate({ scrollTop: secPos }, 100, 'easeOutBounce');
+-- html에 에니메이션 효과를 주기 위해 animate() 메소드를 준다
+-- 첫번째 인자로 properties(에니메이션을 이용한 변화), 두번째 인자로 duration, 세번째 인자로 easing이 전달된다
+-- 엘리먼트만 animate효과를 줄수 있으므로 window, document는 animate 메소드가 작동이 되지 않는다
+
+인디케이터 이동하기
+1. $('p').css({ left: $(this).offset().left, });
+-- p태그에 아래와 같은 css 코드 추가
+-- this는 'nav a'를 가리킨다
+-- p태그(인디케이터)를 nav a가 위치한만큼 왼쪽으로 이동시켜라
+
+사용자가 header 움직이기
+1. $('header').draggable();
+-- draggable()은 JQuery ui에 있는 메소드이기 때문에 반드시 JQuery ui 스크립트 코드를 가져온 뒤 사용해야한다
+2. axis option
+-- 부모태그 안에서만 움직임이 자유롭도록 하는 프로퍼티
+-- axis: "x"는 부모 태그의 x축으로만 자유롭게 움직일 수 있다
+-- axis: "y"는 부모 태그의 y축으로만 자유롭게 움직일 수 있다
+3. revert position
+-- 원래 있던 자리로 돌아가게 만드는 프로퍼티
+-- revert: fase가 default이며 원래 있던 자리로 돌아가지 않는다
+-- revert: true를 지정하면 원래 있던 자리로 돌아가게 만든다  
+-- ? 함수 안에 있는 코드가 미스테리하다..
